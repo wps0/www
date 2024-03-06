@@ -11,7 +11,7 @@ from duckduckgo_search import DDGS
 
 BASE_URL = 'https://mimuw.fandom.com'
 DATA_SOURCE = urljoin(BASE_URL, '/pl/wiki/Specjalna:Wszystkie_strony')
-LIMIT = 5
+LIMIT = 2
 PUBLIC_DIR = 'public/'
 
 
@@ -50,8 +50,12 @@ def get_more_details(url):
     log_progress('Getting more details for', url)
     soup = BeautifulSoup(r.get(url).text, 'html.parser')
     details = (soup.find(id='mw-content-text')
-               .find(class_='mw-parser-output')
-               .text)
+               .find(class_='mw-parser-output'))
+
+    for link in soup.select('a'):
+        link.extract()
+
+    print(details)
     log('OK')
     return details
 
@@ -103,9 +107,10 @@ if __name__ == '__main__':
         index_tmpl = env.get_template('index.md')
 
         for l in lecturers:
-            filename = l.name + '.md'
-            filename = re.sub(r'[^\d.a-zA-Z]', '_', filename)
-            l.exported_url = filename
+            filename = re.sub(r'[^\d.a-zA-Z]', '_', l.name)
+            l.exported_url = filename + '.html'
+            filename += '.md'
+
             with open(os.path.join(PUBLIC_DIR, filename), 'w') as f:
                 f.write(l.as_markdown(entity_tmpl))
 
