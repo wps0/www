@@ -11,7 +11,7 @@ from duckduckgo_search import DDGS
 
 BASE_URL = 'https://mimuw.fandom.com'
 DATA_SOURCE = urljoin(BASE_URL, '/pl/wiki/Specjalna:Wszystkie_strony')
-LIMIT = 2
+LIMIT = 10
 PUBLIC_DIR = 'public/'
 
 
@@ -107,9 +107,8 @@ if __name__ == '__main__':
         index_tmpl = env.get_template('index.md')
 
         for l in lecturers:
-            filename = re.sub(r'[^\d.a-zA-Z]', '_', l.name)
-            l.exported_url = filename + '.html'
-            filename += '.md'
+            filename = re.sub(r'[^\d.a-zA-Z]', '_', l.name + '.md')
+            l.exported_url = filename
 
             with open(os.path.join(PUBLIC_DIR, filename), 'w') as f:
                 f.write(l.as_markdown(entity_tmpl))
