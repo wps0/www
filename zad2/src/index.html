@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>twoj stary</title>
+</head>
+<body>
+    <header class="flex flex-row justify-center shadow-lg *:m-4">
+        <article class="flex flex-col items-center">
+            <h1 class="text-2xl font-bold">Jerozolima</h1>
+            <small>dla turystów</small>
+        </article>
+    </header>
+    <section class="container p-1 md:p-2 m-auto grid gap-4 grid-cols-3">
+        <article class="col-span-3">
+            <img class="mb-4 mx-auto w-auto max-h-96" src="https://cdn.britannica.com/92/177992-050-AED0DC28/Dome-of-the-Rock-Temple-Mount-Jerusalem.jpg" />
+            <p class="text-justify">
+                <strong>Jerozolima</strong> stanowi <strong class="bg-gradient-to-r from-rose-700 to-amber-400 bg-clip-text text-transparent">fascynujące</strong> połączenie starego i nowego. Szczególnie wyjątkowa jest
+                <em>Wschodnia Jerozolima</em>, której częścią jest Stare Miasto znajdujące się na <strong>Liście światowego
+                dziedzictwa UNESCO</strong>. Licznie przybywają tutaj pielgrzymki z całego świata.
+            </p>
+            <details class="my-2">
+                <summary>Więcej</summary>
+                <p class="text-justify">
+                    Jest to największe miasto w kraju pod względem powierzchni (123 km²) i ludności (970 000
+                    mieszkańców). Leży wśród gór Judei, rozciągających się pomiędzy Morzem Śródziemnym a Morzem Martwym.
+                    Miasto posiada długowiekową historię i stanowi centralny punkt dla judaizmu, chrześcijaństwa oraz
+                    ważny punkt dla islamu.
+                </p>
+            </details>
+            TODO: mapa
+        </article>
+        <article class="md:col-start-2 md:col-span-1 col-span-3 flex justify-center gap-2">
+            <label for="pb-israel">% ludności Izraelskiej</label>
+            <progress id="pb-israel" max="970000" value="400000"></progress>
+        </article>
+        <article class="md:col-span-2 col-span-3 flex flex-col gap-4">
+            <h3 class="text-2xl">Osoby związane z miastem</h3>
+            <article>
+                <h4 class="text-xl mb-1">Historyczne</h4>
+                <ol type="I" class="list-decimal list-inside space-y-0.5 text-justify">
+                    <li>Jezus Chrystus</li>
+                    <li>Melchizedek – kapłan Boga Najwyższego, król Szalemu (Salemu, obecnej Jerozolimy).</li>
+                    <li>Józef Flawiusz – żydowski historyk pochodzący z rodu kapłańskiego, urodzony w Jerozolimie.</li>
+                    <li>Salomon – postać biblijna, król Izraela, syn i następca króla Dawida.</li>
+                    <li>Cyryl Jerozolimski – biskup, doktor Kościoła, urodzony w Jerozolimie.</li>
+                    <li>Izaak Luria – żydowski uczony i mistyk, urodzony w Jerozolimie. Jest uważany za twórcę nowożytnej Kabały.</li>
+                    <li>Papież Teodor I – był Grekiem z Jerozolimy, synem biskupa Teodora.</li>
+                    <li>Duńska królowa Bodil, żona Eryka I, która zmarła na Górze Oliwnej w Jerozolimie w 1103 podczas pielgrzymki do Ziemi Świętej, i została tutaj pochowana.</li>
+                    <li>Wilhelm z Tyru – średniowieczny kronikarz urodzony w Jerozolimie, autor dzieła, w którym opisywał dzieje I krucjaty oraz Królestwa Jerozolimskiego.</li>
+                    <li>Al-Hadżdż Muhammad Amin al-Husajni – wielki mufti Jerozolimy, arabski działacz i publicysta nacjonalistyczny i antyżydowski, emigrant polityczny.</li>
+                </ol>
+            </article>
+            <article>
+                <h4 class="text-xl mb-1">Współczesne</h4>
+                <ul class="list-disc list-inside space-y-0.5 text-justify">
+                    <li>Mili Awital – izraelsko-amerykańska aktorka, urodzona w Jerozolimie.</li>
+                    <li>Awraham Burg – izraelski polityk, urodzony w Jerozolimie.</li>
+                    <li>Eliahu Inbal – wybitny dyrygent orkiestrowy, urodzony w Jerozolimie.</li>
+                    <li>Natalie Portman (właściwie Natalie Hershlag) – amerykańska aktorka, urodzona w Jerozolimie.</li>
+                    <li>Amos Oz – izraelski pisarz, eseista i publicysta piszący w języku hebrajskim, urodzony w Jerozolimie.</li>
+                    <li>Dawid Grossman – izraelski pisarz, autor przede wszystkim książek dla dzieci, urodzony w Jerozolimie.</li>
+                    <li>Icchak Rabin – premier i polityk izraelski, były generał, laureat pokojowej Nagrody Nobla z 1994, urodzony w Jerozolimie.</li>
+                    <li>Edward Said – lewicowy intelektualista, profesor amerykański pochodzenia palestyńskiego, wykładowca na Uniwersytecie Columbia, urodzony w Jerozolimie.</li>
+                    <li>Dalja Icik – izraelska polityk, członkini Knesetu z listy partii Kadima i minister komunikacji w rządzie Ehuda Olmerta, w 2006 wybrana jako pierwsza kobieta na przewodniczącego (speakera) parlamentu, urodzona w Jerozolimie.</li>
+                    <li>Icchak Nawon – piąty prezydent państwa Izraela, urodzony w Jerozolimie.</li>
+                </ul>
+            </article>
+        </article>
+        <article class="md:col-start-3 md:col-span-1 col-span-3">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="bg-slate-200">
+                        <th>Rok</th>
+                        <th>Ludność</th>
+                    </tr>
+                </thead>
+                <tbody class="odd:*:bg-white even:*:bg-slate-50 hover:*:bg-slate-100 text-center">
+                    <tr>
+                        <td>1525</td>
+                        <td>4700</td>
+                    </tr>
+                    <tr>
+                        <td>1538</td>
+                        <td>7900</td>
+                    </tr>
+                    <tr>
+                        <td>1553</td>
+                        <td>12 384</td>
+                    </tr>
+                    <tr>
+                        <td>1562</td>
+                        <td>12 650</td>
+                    </tr>
+                    <tr>
+                        <td>1800</td>
+                        <td>8750</td>
+                    </tr>
+                    <tr>
+                        <td>1838</td>
+                        <td>11 000</td>
+                    </tr>
+                    <tr>
+                        <td>1844</td>
+                        <td>15 510</td>
+                    </tr>
+                    <tr>
+                        <td>1876</td>
+                        <td>25 030</td>
+                    </tr>
+                    <tr>
+                        <td>1896</td>
+                        <td>45 430</td>
+                    </tr>
+                    <tr>
+                        <td>1905</td>
+                        <td>60 000</td>
+                    </tr>
+                    <tr>
+                        <td>1913</td>
+                        <td>75 200</td>
+                    </tr>
+                    <tr>
+                        <td>1917</td>
+                        <td>53 410</td>
+                    </tr>
+                </tbody>
+                <caption>Rozkład ludności</caption>
+            </table>
+        </article>
+        <article class="md:col-span-2 col-span-3 gap-3">
+            <h3 class="text-2xl">Dodaj komentarz</h3>
+            <form class="flex flex-col gap-1">
+                <label for="email">Email</label>
+                <input type="email" placeholder="Email" id="email" />
+                <label for="comment">Komentarz</label>
+                <textarea id="comment" placeholder="Komentarz"></textarea>
+
+                <label for="a-spam">Twój ulubiony dinozaur</label>
+                <select id="a-spam">
+                    <optgroup label="Theropods">
+                        <option>Tyrannosaurus</option>
+                        <option>Velociraptor</option>
+                        <option>Deinonychus</option>
+                    </optgroup>
+                    <optgroup label="Sauropods">
+                        <option>Diplodocus</option>
+                        <option>Saltasaurus</option>
+                        <option>Apatosaurus</option>
+                    </optgroup>
+                </select>
+
+                <button type="submit">Wyślij</button>
+            </form>
+        </article>
+        <article class="col-span-3 text-center h-32 flex flex-col justify-center">
+            <p class="text-red-600 w-full text-4xl">
+                Gratulacje użytkowniku, zostałeś wybrany<strong class="animate-ping text-red-600">!</strong><br />
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Wygraj darmowego iPhone 11 (kliknij)</a>
+            </p>
+        </article>
+    </section>
+    <footer class="bg-gradient-to-r from-yellow-300 to-amber-500 p-4 flex justify-center">
+        shalom
+    </footer>
+    <link href="output.css" rel="stylesheet" />
+</body>
+</html>
