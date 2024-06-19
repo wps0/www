@@ -27,6 +27,7 @@ PAGE_SIZE = 5
 
 
 app = FastAPI()
+snapshot = 0
 
 origins = [
     "http://localhost:8080",
@@ -42,7 +43,7 @@ app.add_middleware(
 )
 
 def paginate(images: list[Image], page: int) -> list[Image]:
-    pages = (len(images) + 1) // PAGE_SIZE
+    pages = (len(images) + PAGE_SIZE - 1) // PAGE_SIZE
     imgs_len = len(images)
     offset = PAGE_SIZE * (page - 1)
     imgs = []
@@ -57,11 +58,18 @@ def paginate(images: list[Image], page: int) -> list[Image]:
         imgs = images[offset:offset + page_len]
 
     return {
+        "snapshot": snapshot,
         "total_images": len(images),
         "pages": pages,
         "count": page_len,
         "images": imgs
     }
+
+def any_starts_with(strings: list[str], prefix: str) -> bool:
+    for s in strings:
+        if s.startswith(prefix):
+            return True
+    return False
 
 @app.get("/images/p/{page}")
 async def get_images(page: int):
@@ -69,16 +77,17 @@ async def get_images(page: int):
 
 @app.get("/images/total")
 def get_images_total():
-    return {"total_images": len(images_store), "pages": (len(images_store) + 1) // PAGE_SIZE}
+    return {"snapshot": snapshot, total_images": len(images_store), "pages": (len(images_store) + 1) // PAGE_SIZE}
 
 @app.get("/images/add/{count}")
 def add_images(count: int):
     global images_store
     for i in range(count):
         images_store.append(Image(src="abc", title="artificial image " + str(i), tags=['artificial']))
+        snapshot += 1
 
 
 @app.get("/images/p/{page}/{tag}")
 async def get_images(page: int, tag: str):
-    tagged_images = [x for x in images_store if tag in x.tags]
+    tagged_images = [x for x in images_store if any_starts_with(x.tags, tag)]
     return paginate(tagged_images, page)
