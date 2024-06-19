@@ -1,6 +1,7 @@
 <script setup>
 
 import {ref} from "vue";
+import ImageTagList from "@/components/ImageTagList.vue";
 
 const props = defineProps({
   img: Object
@@ -57,22 +58,8 @@ function onError() {
       </template>
     </v-dialog>
 
-    <br />
-    <span v-for="tag in img.tags"
-          :key="tag">
-              <v-chip
-                class="ma-2"
-                color="pink"
-                label
-              >
-                <v-icon icon="mdi-label" start></v-icon>
-                {{ tag }}
-              </v-chip>
-            </span>
+    <ImageTagList tags="img.tags" />
   </div>
 
 </template>
 
-<style scoped>
-
-</style>

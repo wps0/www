@@ -1,6 +1,6 @@
 <script setup>
 import {ref, watch} from 'vue'
-import ListItem from "@/components/ListItem.vue";
+import ListItem from "@/components/ImageDetails.vue";
 
 const PAGE_SIZE = 5
 
@@ -41,14 +41,6 @@ async function checkNewImagesAvailability() {
   }
 }
 
-async function onRefreshClick() {
-  const resp = await (await fetch(`http://localhost:8000/images/total`)).json();
-
-  if (resp['snapshot'] !== localSnapshot) {
-    await fetchImagesAndUpdateState()
-  }
-}
-
 function filterImages() {
   let tagged = localImagesStore
     .filter(img => tag.value === '' || img.tags.some(imgTag => imgTag.startsWith(tag.value)), tag)
@@ -70,6 +62,16 @@ function updateImagesView() {
   images.value = paginate(filtered)
   length.value = Math.ceil(filtered.length / PAGE_SIZE)
 }
+
+
+async function onRefreshClick() {
+  const resp = await (await fetch(`http://localhost:8000/images/total`)).json();
+
+  if (resp['snapshot'] !== localSnapshot) {
+    await fetchImagesAndUpdateState()
+  }
+}
+
 
 setInterval(checkNewImagesAvailability, 5000);
 
