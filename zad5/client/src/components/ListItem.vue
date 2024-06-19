@@ -6,7 +6,7 @@ const props = defineProps({
   img: Object
 })
 
-const isLoading = ref(true)
+const isLoading = ref(false)
 const error = ref('')
 
 
